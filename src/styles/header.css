@@ -1,0 +1,53 @@
+/* Header-specific refinements */
+
+/* Remove default focus outlines for mouse users; handled globally via :focus-visible */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Optional: subtle ring on CTA buttons in the header */
+.header-cta {
+  box-shadow: 0 1px 0 rgba(11, 40, 76, 0.05), 0 6px 18px rgba(11, 40, 76, 0.10);
+}
+.header-cta:hover {
+  box-shadow: 0 2px 0 rgba(11, 40, 76, 0.06), 0 10px 24px rgba(11, 40, 76, 0.14);
+}
+
+/* Gradient border button for ultra-modern CTA */
+.btn-gradient {
+  position: relative;
+  background: #fff;
+  border-color: transparent;
+  isolation: isolate;
+  border-radius: 999px; /* default; can be overridden (e.g., md:rounded-xl) */
+}
+
+.btn-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, var(--brand-sky), var(--brand-violet), var(--brand-rose), var(--brand-amber));
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.btn-gradient:hover {
+  color: #fff !important;
+  background: linear-gradient(120deg, var(--brand-sky), var(--brand-violet), var(--brand-rose), var(--brand-amber));
+}
+
+.btn-gradient:hover::before { opacity: 0; }
+
+/* Safe-area utilities for notched devices */
+.pt-safe { padding-top: max(env(safe-area-inset-top), 1rem); }
+.pb-safe { padding-bottom: max(env(safe-area-inset-bottom), 1rem); }

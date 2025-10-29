@@ -1,0 +1,255 @@
+{
+  "project_name": "Tom Nyambu Portfolio",
+  "domain": "tomnyambu.dev",
+  "framework": "React (Vite)",
+  "styling": {
+    "tailwind": true,
+    "external_css": true,
+    "icon_library": "lucide-react",
+    "animation_library": "framer-motion"
+  },
+  "theme": {
+    "primary": "#0b284c",
+    "accent": "#e5ab5f",
+    "font_heading": "Poppins, Inter, or Work Sans",
+    "font_body": "Source Sans, Lato, or Nunito Sans"
+  },
+  "pages": [
+    {
+      "name": "Home",
+      "path": "/",
+      "components": [
+        "Hero Section (fade-in animation)",
+        "Quick Intro (text slide-up)",
+        "Call To Action buttons (View Projects, Download Resume)"
+      ],
+      "animations": {
+        "on_load": "fadeIn",
+        "cta_hover": "scaleUp"
+      }
+    },
+    {
+      "name": "About",
+      "path": "/about",
+      "content": [
+        "Professional bio (Full Stack Developer & DevOps Engineer)",
+        "Training: Moringa School (DevOps/Cloud)",
+        "Technical stack summary: Django, DRF, React, Tailwind, PostgreSQL",
+        "Experience: DigitalOcean, Azure, Ubuntu servers, CI/CD"
+      ],
+      "animations": {
+        "section_reveal": "fadeUp",
+        "image_fade": "fadeIn"
+      }
+    },
+    {
+      "name": "Projects",
+      "path": "/projects",
+      "structure": "Grid of ProjectCards",
+      "content": [
+        {
+          "title": "Dima eCommerce",
+          "stack": "Django, React, PostgreSQL",
+          "desc": "Full-stack eCommerce platform with secure JWT Auth and modern UI."
+        },
+        {
+          "title": "Finarchitect",
+          "stack": "Django REST Framework, JWT, Gunicorn, Nginx",
+          "desc": "Business registration system with auto PDF generation and admin approvals."
+        },
+        {
+          "title": "DevOps Pipelines",
+          "stack": "Ubuntu, DigitalOcean, Nginx, Gunicorn, Webhooks",
+          "desc": "Automated deployments, server monitoring, and CI/CD integration."
+        }
+      ],
+      "animations": {
+        "card_hover": "scaleShadow",
+        "load_reveal": "staggerFadeUp"
+      }
+    },
+    {
+      "name": "Resume",
+      "path": "/resume",
+      "content": [
+        "Embedded PDF Viewer (Download Option)",
+        "Summary of core competencies:",
+        "Backend, DevOps, Cloud Deployments, React UI Work, Team Collaboration"
+      ],
+      "animations": {
+        "load": "fadeIn"
+      }
+    },
+    {
+      "name": "Contact",
+      "path": "/contact",
+      "content": [
+        "Simple Contact Form (Name, Email, Message)",
+        "Social links: LinkedIn, GitHub, Email"
+      ],
+      "animations": {
+        "form_load": "slideUp",
+        "submit_button": "pulseOnce"
+      }
+    }
+  ],
+  "components": [
+    "Navbar (fixed top, slideDown reveal)",
+    "Footer (centered copyright, icon links)",
+    "Layout wrapper (handles Framer Motion transitions)",
+    "AnimatedSection utility (fade-in + translateY)",
+    "ProjectCard reusable component"
+  ],
+  "directory_structure": {
+    "src": [
+      "assets/",
+      "components/",
+      "pages/",
+      "data/",
+      "styles/"
+    ]
+  },
+  "responsiveness": {
+    "breakpoints": {
+      "mobile": "360px+",
+      "tablet": "768px+",
+      "desktop": "1024px+"
+    },
+    "methods": [
+      "use Tailwind for utility layouts",
+      "refine with responsive.css using media queries",
+      "apply clamp() for text scaling"
+    ]
+  },
+  "animations": {
+    "library": "framer-motion",
+    "standards": {
+      "duration": "300ms",
+      "easing": "easeInOut",
+      "consistency": "uniform transition speeds"
+    }
+  },
+  "build_steps": [
+    "npm install",
+    "npm run build",
+    "serve static files with Nginx or Vercel"
+  ],
+  "deployment": {
+    "server": "Ubuntu (likely your DigitalOcean setup)",
+    "nginx_file": "simple version provided below"
+  }
+}
+{
+  "personal_info": {
+    "full_name": "Tom Nyambu",
+    "email": "mwakionyambu57@gmail.com",
+    "github": "https://github.com/57nyambu",
+    "note": "Some repositories are private due to production use."
+  },
+
+  "professional_profile": "Backend Engineer and DevOps Lead experienced in building, deploying, and maintaining full-stack systems across cloud environments. Skilled in Python (Django, DRF, Flask) and React ecosystems, with practical cloud experience on DigitalOcean and Azure IaaS. Known for designing CI/CD automation workflows, secure API integrations, and scalable infrastructures.",
+
+  "education": {
+    "university": "Kenyatta University",
+    "location": "Nairobi, Kenya",
+    "degree": "Bachelor of Science in Information Technology"
+  },
+
+  "certifications": [
+    {
+      "title": "Linux Systems (Self-taught)",
+      "details": "Nearly two years of experience starting with Kali Linux before transitioning to Ubuntu for server administration and deployment management."
+    }
+  ],
+
+  "key_projects": [
+    {
+      "title": "Dima eCommerce Platform",
+      "description": "A multivendor and multitenant platform built end-to-end with Django & DRF (backend) and React (frontend). Integrated PostgreSQL, REST APIs, JWT authentication, slugs for clean URLs, and a dedicated image-server for optimized image processing.",
+      "deployment": "Fully deployed on Azure Cloud IaaS.",
+      "url": "https://dima.co.ke"
+    },
+    {
+      "title": "Finarchitect",
+      "description": "Comprehensive financial management system using Django & DRF, deployed on DigitalOcean with Gunicorn, Nginx, and systemd. Includes advanced AI version 'AI Finarchitect' for financial modeling and forecasting.",
+      "deployment": "Multiple DigitalOcean droplets under Finarchitect Cloud, CI/CD with Telegram notifications.",
+      "url": "https://ai.finarchitect.online"
+    },
+    {
+      "title": "Hookworm (CI/CD Tool)",
+      "description": "Custom-built CI/CD automation tool supporting multiple repositories. Integrated with GitHub webhooks and Telegram notifications, with email alerts under development. Manages build/test/deploy pipelines using Flask."
+    },
+    {
+      "title": "Inventory Management System",
+      "description": "Handles procurement, warehouse, and retail POS operations. Integrated payment gateways and compliance with regulatory bodies such as KRA. Designed for scalability and modular customization."
+    },
+    {
+      "title": "Webhook Automation Server",
+      "description": "Flask-based webhook manager handling automation and deployment notifications.",
+      "deployment_path": "/home/prod/devops/webhook.py"
+    },
+    {
+      "title": "Business Registration System",
+      "description": "Django system supporting multiple business types, generating unique registration numbers (CBR/TYPE/SEQ/YEAR). Produces verified PDF certificates upon admin approval, securely stored and downloadable by users."
+    },
+    {
+      "title": "Patient Management System",
+      "description": "Spreadsheet-style record management system built with Django, includes live autocomplete search and simplified patient data handling."
+    }
+  ],
+
+  "infrastructure_cloud_management": {
+    "overview": "Manages two independent infrastructures with focus on automation, scaling, and stability.",
+    "platforms": [
+      {
+        "name": "Finarchitect Cloud",
+        "provider": "DigitalOcean",
+        "details": "Runs Django + DRF with systemd & Nginx across multiple droplets."
+      },
+      {
+        "name": "Azure Cloud (Personal IaaS)",
+        "details": "Hosts Dima (frontend, backend, image-server), Hookworm CI/CD, and Diani Voyage (travel platform).",
+        "url": "https://dianivoyage.maracore.me"
+      }
+    ]
+  },
+
+  "technical_skills": {
+    "languages": ["Python", "JavaScript", "HTML", "CSS"],
+    "frameworks": ["Django", "Django Rest Framework", "Flask", "React", "PyQt5"],
+    "databases": ["PostgreSQL", "Redis", "MongoDB"],
+    "cloud_deployment": ["Azure", "DigitalOcean", "Ubuntu Server", "Gunicorn", "Nginx", "systemd"],
+    "automation_ci_cd": ["Hookworm", "Webhooks", "Telegram API", "Bash scripting"],
+    "security_auth": ["DRF SimpleJWT", "Secure file handling", "Access roles"],
+    "tools": ["Git", "RESTful API design"]
+  },
+
+  "experience": [
+    {
+      "title": "Backend Engineer / DevOps Lead",
+      "type": "Remote (Startup)",
+      "duration": "5 months (unpaid)",
+      "responsibilities": [
+        "Led full backend design and deployment for the startup’s MVP.",
+        "Implemented CI/CD pipelines and monitoring with Telegram integration.",
+        "Configured server automation, scaling, and security across droplets.",
+        "Currently training new recruits to handle system maintenance as part of transition."
+      ]
+    }
+  ],
+
+  "soft_skills": [
+    "Analytical and solution-oriented problem solver.",
+    "Autonomous, adaptable, and technically disciplined.",
+    "Capable of leading infrastructure handovers and system design workshops."
+  ],
+
+  "current_focus": "Preparing for Azure Cloud certification.",
+  
+  "meta": {
+    "version": "1.0",
+    "editable": true,
+    "notes": "Structured for reuse in job-specific resume generation."
+  }
+}
+

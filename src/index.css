@@ -1,0 +1,310 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Lato:wght@400;700&display=swap');
+
+/* Import responsive styles */
+@import './styles/responsive.css';
+
+/* Component-level custom styles */
+@import './styles/header.css';
+@import './styles/hero.css';
+@import './styles/cards.css';
+
+/* Import Tailwind CSS */
+@import "tailwindcss";
+
+
+/* CSS Reset and Base Styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Theme Colors */
+  --color-primary: #0b284c;
+  --color-accent: #e5ab5f;
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --color-bg: #ffffff;
+  --color-bg-light: #f9fafb;
+
+  /* Layout */
+  --header-h: 4rem; /* 64px - mobile */
+
+  /* Brand Accents */
+  --brand-sky: #38bdf8;     /* sky-400 */
+  --brand-violet: #8b5cf6;  /* violet-500 */
+  --brand-teal: #14b8a6;    /* teal-500 */
+  --brand-amber: #f59e0b;   /* amber-500 */
+  --brand-rose: #fb7185;    /* rose-400 */
+
+  /* Typography */
+  font-family: 'Lato', 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  /* Font Rendering */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  overflow-x: hidden;
+}
+
+/* Headings - Use Poppins for headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+  /* Ensure in-page anchors account for fixed header height */
+  scroll-padding-top: var(--header-h);
+}
+
+/* Selection Styling */
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Focus Styles for Accessibility (keyboard only) */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Utility Classes */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-h: 5rem; /* 80px - desktop */
+  }
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading State */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  nav,
+  footer,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  a[href]:after {
+    content: ' (' attr(href) ')';
+  }
+}
+
+/* Ultra-modern header utilities */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 100;
+  background: #fff;
+  color: var(--color-primary);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Animated underline for nav links */
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 0;
+  margin: 0 auto;
+  background: var(--color-accent);
+  transition: width 180ms ease-in-out;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--color-accent);
+}
+
+.nav-link:hover::after,
+.nav-link--active::after {
+  width: 100%;
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: 0.5rem;
+}
+
+/* Fixed header offset helpers */
+.main-offset {
+  padding-top: var(--header-h);
+}
+
+/* Any element targeted by an anchor won't hide behind the fixed header */
+[id] {
+  scroll-margin-top: calc(var(--header-h) + 0.5rem);
+}
+
+/* Vertical rhythm helpers */
+.flow > * + * {
+  margin-top: clamp(0.75rem, 1.2vw, 1.25rem);
+}
+
+.flow-lg > * + * {
+  margin-top: clamp(1rem, 1.6vw, 1.75rem);
+}
+
+.stack-md {
+  display: grid;
+  gap: clamp(0.75rem, 1.2vw, 1.25rem);
+}
+
+/* Heading refinements */
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+h2 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
