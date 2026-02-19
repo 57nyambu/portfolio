@@ -1,72 +1,157 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ArrowRight, Download, Code2, Cloud, Shield, Building2, TrendingUp, Server } from 'lucide-react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import '../styles/home.css';
 
 const Home = () => {
+  const capabilities = [
+    { icon: Code2, label: 'Full Stack Engineering', desc: 'Django · React · TypeScript' },
+    { icon: Cloud, label: 'Cloud Architecture', desc: 'Azure · DigitalOcean · IaaS' },
+    { icon: Shield, label: 'Fintech & Compliance', desc: 'ISO 20022 · Tazama · AML' },
+    { icon: Server, label: 'DevOps & Infrastructure', desc: 'CI/CD · Nginx · Docker' },
+  ];
+
+  const clientTypes = [
+    { icon: Building2, label: 'Enterprise' },
+    { icon: TrendingUp, label: 'Fintech' },
+    { icon: Shield, label: 'Regulatory' },
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/5 to-accent/5">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
-        <div className="max-w-4xl mx-auto text-center flow">
-          {/* Hero Section with Fade In */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="mb-4">
-              <span className="eyebrow">Full Stack • DevOps</span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold gradient-brand mb-6 tracking-tight">
-              Hi, I'm Tom Nyambu
-            </h1>
-          </motion.div>
+    <div className="home-container">
+      {/* Animated background elements */}
+      <div className="home-bg-effects">
+        <div className="home-bg-orb home-bg-orb-1" />
+        <div className="home-bg-orb home-bg-orb-2" />
+        <div className="home-bg-grid" />
+      </div>
 
-          {/* Intro with Slide Up */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <p className="text-xl sm:text-2xl text-gray-700 mb-4">
-              Full Stack Developer & DevOps Engineer
-            </p>
-            <p className="text-base sm:text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
-              Building scalable full-stack systems, deploying cloud infrastructures,
-              and automating CI/CD pipelines across Azure and DigitalOcean.
-            </p>
-          </motion.div>
+      <div className="home-content">
+        <div className="home-inner">
+          
+          {/* Hero Content */}
+          <div className="home-hero">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="home-badge-wrapper"
+            >
+              <span className="home-badge">
+                <span className="home-badge-dot" />
+                Available for Enterprise & Fintech Projects
+              </span>
+            </motion.div>
 
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <Link to="/projects">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="home-title"
+            >
+              <span className="home-title-gradient">
+                Tom Nyambu
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="home-subtitle"
+            >
+              Full Stack Engineer & Cloud Architect
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="home-description"
+            >
+              Architecting scalable enterprise systems, fintech platforms, and cloud-native 
+              solutions. Specialized in ISO 20022 integrations, transaction monitoring, 
+              and production-grade deployments across Azure and DigitalOcean.
+            </motion.p>
+
+            {/* Client Type Pills */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="home-client-types"
+            >
+              {clientTypes.map((type, idx) => (
+                <div key={idx} className="home-client-pill">
+                  <type.icon className="home-client-icon" />
+                  <span>{type.label}</span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="home-cta"
+            >
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link to="/projects" className="home-btn home-btn-primary">
+                  <span>View Projects</span>
+                  <ArrowRight className="home-btn-icon" />
+                </Link>
+              </motion.div>
+
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center space-x-2 bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors duration-300 shadow-lg"
+                className="home-btn home-btn-secondary"
+                onClick={() => window.open('/resume.pdf', '_blank')}
               >
-                <span>View Projects</span>
-                <ArrowRight size={20} />
-              </motion.button>
-            </Link>
-
-            <a href="/resume.pdf" download>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center space-x-2 bg-accent text-white px-8 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors duration-300 shadow-lg"
-              >
-                <Download size={20} />
+                <Download className="home-btn-icon" />
                 <span>Download Resume</span>
               </motion.button>
-            </a>
+            </motion.div>
+          </div>
+
+          {/* Lottie Animation */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="home-lottie"
+          >
+            <DotLottieReact
+              src="https://lottie.host/95513a23-956d-418b-ab0a-76cb0b75f02d/edsEiNGQsU.lottie"
+              loop
+              autoplay
+            />
           </motion.div>
+
         </div>
       </div>
+
+      {/* Capabilities Strip */}
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.7 }}
+        className="home-capabilities"
+      >
+        <div className="home-capabilities-inner">
+          {capabilities.map((cap, idx) => (
+            <div key={idx} className="home-capability-card">
+              <cap.icon className="home-capability-icon" />
+              <div>
+                <p className="home-capability-label">{cap.label}</p>
+                <p className="home-capability-desc">{cap.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.section>
     </div>
   );
 };

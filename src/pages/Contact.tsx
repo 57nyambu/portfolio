@@ -1,18 +1,20 @@
 import { useState } from 'react';
 import AnimatedSection from '../components/AnimatedSection';
-import { Send, Mail, Github, Linkedin } from 'lucide-react';
+import { Send, Mail, Github, Linkedin, MessageSquare, Clock, Shield, Building2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    company: '',
+    subject: '',
     message: '',
   });
 
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -23,11 +25,10 @@ const Contact = () => {
     e.preventDefault();
     setStatus('sending');
 
-    // Simulate form submission
     setTimeout(() => {
       console.log('Form submitted:', formData);
       setStatus('sent');
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', company: '', subject: '', message: '' });
       
       setTimeout(() => {
         setStatus('idle');
@@ -56,19 +57,39 @@ const Contact = () => {
     },
   ];
 
+  const serviceAreas = [
+    { icon: Building2, label: 'Enterprise Platform Development' },
+    { icon: Shield, label: 'Fintech & Compliance Systems' },
+    { icon: MessageSquare, label: 'API Architecture & Integration' },
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/5 to-accent/5 pb-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="page-dark">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <AnimatedSection>
-          <div className="max-w-4xl mx-auto flow-lg">
+          <div className="max-w-5xl mx-auto">
             {/* Header */}
             <div className="text-center mb-12">
-              <h1 className="text-4xl sm:text-5xl font-extrabold gradient-brand mb-4 tracking-tight">
-                Get In Touch
+              <div className="section-eyebrow">
+                <Mail size={16} />
+                <span>Contact</span>
+              </div>
+              <h1 className="section-heading">
+                Let's Build Something Together
               </h1>
-              <p className="text-lg text-gray-600">
-                Have a project in mind? Let's work together!
+              <p className="section-subheading">
+                Available for enterprise projects, fintech integrations, and cloud architecture consulting.
               </p>
+            </div>
+
+            {/* Service Areas */}
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              {serviceAreas.map((area, idx) => (
+                <div key={idx} className="home-client-pill">
+                  <area.icon size={16} className="home-client-icon" />
+                  <span className="text-sm text-slate-300">{area.label}</span>
+                </div>
+              ))}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -78,45 +99,84 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="glass-card p-6 sm:p-8"
+                  className="glass-card-dark p-6 sm:p-8"
                 >
-                  <h2 className="text-2xl font-bold text-primary mb-6">Send a Message</h2>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
-                        placeholder="Your name"
-                      />
+                  <h2 className="text-xl font-bold text-slate-100 mb-6">Send a Message</h2>
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="name" className="form-label">
+                          Name *
+                        </label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          className="form-input"
+                          placeholder="Your name"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="form-label">
+                          Email *
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="form-input"
+                          placeholder="you@company.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="company" className="form-label">
+                          Company
+                        </label>
+                        <input
+                          type="text"
+                          id="company"
+                          name="company"
+                          value={formData.company}
+                          onChange={handleChange}
+                          className="form-input"
+                          placeholder="Your company"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="subject" className="form-label">
+                          Subject *
+                        </label>
+                        <select
+                          id="subject"
+                          name="subject"
+                          value={formData.subject}
+                          onChange={handleChange}
+                          required
+                          className="form-input"
+                        >
+                          <option value="">Select a topic</option>
+                          <option value="enterprise">Enterprise Development</option>
+                          <option value="fintech">Fintech Integration</option>
+                          <option value="cloud">Cloud Architecture</option>
+                          <option value="devops">DevOps & CI/CD</option>
+                          <option value="consulting">Consulting</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
-                        placeholder="your.email@example.com"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                        Message
+                      <label htmlFor="message" className="form-label">
+                        Message *
                       </label>
                       <textarea
                         id="message"
@@ -124,9 +184,9 @@ const Contact = () => {
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        rows={6}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-none"
-                        placeholder="Tell me about your project..."
+                        rows={5}
+                        className="form-input resize-none"
+                        placeholder="Tell me about your project, requirements, and timeline..."
                       />
                     </div>
 
@@ -135,12 +195,12 @@ const Contact = () => {
                       disabled={status === 'sending'}
                       whileHover={{ scale: status === 'sending' ? 1 : 1.02 }}
                       whileTap={{ scale: status === 'sending' ? 1 : 0.98 }}
-                      className={`w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                      className={`w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                         status === 'sending'
-                          ? 'bg-gray-400 cursor-not-allowed'
+                          ? 'bg-slate-600 cursor-not-allowed text-slate-400'
                           : status === 'sent'
-                          ? 'bg-green-500 text-white'
-                          : 'bg-primary text-white hover:bg-primary/90 shadow-lg'
+                          ? 'bg-emerald-600 text-white'
+                          : 'bg-gradient-to-r from-blue-600 to-blue-500 text-white hover:from-blue-500 hover:to-blue-400 shadow-lg shadow-blue-500/20'
                       }`}
                     >
                       {status === 'sending' ? (
@@ -149,7 +209,7 @@ const Contact = () => {
                         <span>Message Sent!</span>
                       ) : (
                         <>
-                          <Send size={20} />
+                          <Send size={18} />
                           <span>Send Message</span>
                         </>
                       )}
@@ -158,40 +218,46 @@ const Contact = () => {
                 </motion.div>
               </AnimatedSection>
 
-              {/* Social Links */}
+              {/* Sidebar */}
               <AnimatedSection delay={0.4}>
                 <div className="space-y-6">
-                  <div className="glass-card p-6 sm:p-8">
-                    <h2 className="text-2xl font-bold text-primary mb-6">Connect With Me</h2>
-                    <div className="space-y-4">
+                  {/* Connect Links */}
+                  <div className="glass-card-dark p-6 sm:p-8">
+                    <h2 className="text-xl font-bold text-slate-100 mb-6">Connect Directly</h2>
+                    <div className="space-y-3">
                       {socialLinks.map((social) => (
                         <a
                           key={social.name}
                           href={social.url}
                           target={social.name !== 'Email' ? '_blank' : undefined}
                           rel={social.name !== 'Email' ? 'noopener noreferrer' : undefined}
-                          className="flex items-center space-x-4 p-4 rounded-lg bg-gradient-to-r from-primary/5 to-accent/5 hover:from-primary/10 hover:to-accent/10 transition-all duration-300 group"
+                          className="flex items-center space-x-4 p-4 rounded-lg bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 group border border-slate-700/30 hover:border-slate-600/50"
                         >
-                          <div className="p-3 bg-white rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
-                            <social.icon className="text-primary group-hover:text-accent transition-colors" size={24} />
+                          <div className="icon-box">
+                            <social.icon size={20} />
                           </div>
                           <div>
-                            <p className="font-semibold text-primary">{social.name}</p>
-                            <p className="text-sm text-gray-600">{social.label}</p>
+                            <p className="font-semibold text-slate-200 text-sm">{social.name}</p>
+                            <p className="text-xs text-slate-400">{social.label}</p>
                           </div>
                         </a>
                       ))}
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-br from-primary to-primary/90 text-white rounded-lg shadow-lg p-6 sm:p-8">
-                    <h3 className="text-xl font-bold mb-4">Availability</h3>
-                    <p className="mb-4">
-                      I'm currently available for freelance projects and full-time opportunities.
+                  {/* Availability */}
+                  <div className="glass-card-dark p-6 sm:p-8 border-emerald-500/20">
+                    <div className="flex items-center space-x-3 mb-4">
+                      <div className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse" />
+                      <h3 className="text-lg font-bold text-slate-100">Currently Available</h3>
+                    </div>
+                    <p className="text-slate-300 text-sm mb-4">
+                      Open to enterprise contracts, fintech integrations, cloud consulting, and full-time opportunities.
                     </p>
-                    <p className="text-sm text-gray-200">
-                      Response time: Usually within 24 hours
-                    </p>
+                    <div className="flex items-center space-x-2 text-slate-400 text-sm">
+                      <Clock size={14} />
+                      <span>Typical response within 24 hours</span>
+                    </div>
                   </div>
                 </div>
               </AnimatedSection>

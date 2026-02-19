@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
@@ -8,8 +10,17 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  // Home page has its own full-height hero, no offset needed
+  const isHome = pathname === '/';
+
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="layout-root">
       <Navbar />
       <motion.main
         id="main"
@@ -17,7 +28,7 @@ const Layout = ({ children }: LayoutProps) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="flex-grow main-offset"
+        className={isHome ? '' : 'main-offset'}
       >
         {children}
       </motion.main>

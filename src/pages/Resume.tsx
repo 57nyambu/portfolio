@@ -1,156 +1,227 @@
 import AnimatedSection from '../components/AnimatedSection';
-import { Download, Briefcase, Award, Code } from 'lucide-react';
+import { Download, Briefcase, Award, Code, Shield, Server, CheckCircle, ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Resume = () => {
+  const competencies = [
+    {
+      title: 'Backend Engineering',
+      items: 'Django, Django REST Framework, Flask, Python, RESTful APIs, JWT, WebSockets',
+    },
+    {
+      title: 'Frontend Development',
+      items: 'React, TypeScript, Tailwind CSS, Framer Motion, Responsive Design',
+    },
+    {
+      title: 'Cloud & DevOps',
+      items: 'Azure (IaaS), DigitalOcean, CI/CD, Docker, Nginx, Gunicorn, systemd, Linux',
+    },
+    {
+      title: 'Database & Data',
+      items: 'PostgreSQL, Redis, MongoDB, Query Optimization, Data Modeling',
+    },
+    {
+      title: 'Fintech & Compliance',
+      items: 'ISO 20022 Messaging, Tazama (AML/CFT), Payment Gateways, KRA Integration',
+    },
+    {
+      title: 'Enterprise Platforms',
+      items: 'Multi-tenant SaaS, eCommerce, ERP, Inventory Management, Business Registration',
+    },
+  ];
+
+  const experiences = [
+    {
+      title: 'Backend Engineer / DevOps Lead',
+      company: 'Remote Startup',
+      period: '5 Months',
+      items: [
+        'Led full backend architecture and deployment for the startup\'s MVP using Django & DRF',
+        'Implemented CI/CD pipelines with automated testing, deployment, and Telegram/email notifications',
+        'Configured server automation, scaling, and security across multiple DigitalOcean droplets',
+        'Designed RESTful API architecture serving web and mobile client applications',
+        'Trained new recruits for system maintenance as part of operational transition',
+      ],
+    },
+    {
+      title: 'Fintech Integration Engineer',
+      company: 'Client Project — Inter-continental Transactions',
+      period: 'Contract',
+      items: [
+        'Implemented integration with Tazama open-source transaction monitoring system for real-time AML/CFT compliance',
+        'Worked with ISO 20022 messaging standards for cross-border and international payment processing',
+        'Designed transaction screening pipelines for clients processing inter-continental fund transfers',
+        'Ensured compliance with regulatory frameworks across multiple jurisdictions',
+        'Proof of work and detailed documentation available on demand',
+      ],
+    },
+  ];
+
+  const education = [
+    {
+      title: 'Bachelor of Science in Information Technology',
+      institution: 'Kenyatta University — Nairobi, Kenya',
+    },
+    {
+      title: 'DevOps & Cloud Engineering Training',
+      institution: 'Moringa School',
+    },
+    {
+      title: 'Linux Systems Administration',
+      institution: 'Self-taught — Nearly 2 years of hands-on Ubuntu server administration',
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-white pt-24 pb-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="page-dark">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <AnimatedSection>
           <div className="max-w-4xl mx-auto">
             {/* Header */}
             <div className="text-center mb-12">
-              <h1 className="text-4xl sm:text-5xl font-bold text-primary mb-4">
-                Resume
+              <div className="section-eyebrow">
+                <Briefcase size={16} />
+                <span>Resume</span>
+              </div>
+              <h1 className="section-heading">
+                Tom Nyambu
               </h1>
-              <p className="text-lg text-gray-600 mb-6">
-                Backend Engineer & DevOps Lead
+              <p className="section-subheading">
+                Full Stack Engineer · Cloud Architect · Fintech Specialist
               </p>
-              <a href="/resume.pdf" download>
-                <button className="inline-flex items-center space-x-2 bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors duration-300 shadow-lg">
-                  <Download size={20} />
-                  <span>Download Full Resume</span>
-                </button>
-              </a>
+              <div className="flex flex-wrap justify-center gap-3 mt-6">
+                <a href="/resume.pdf" download>
+                  <motion.button
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="home-btn home-btn-primary"
+                  >
+                    <Download size={18} />
+                    <span>Download Full Resume</span>
+                  </motion.button>
+                </a>
+                <Link to="/contact">
+                  <motion.button
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="home-btn home-btn-secondary"
+                  >
+                    <ExternalLink size={18} />
+                    <span>Get in Touch</span>
+                  </motion.button>
+                </Link>
+              </div>
             </div>
 
             {/* Core Competencies */}
             <AnimatedSection delay={0.2}>
-              <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg p-6 sm:p-8 mb-8">
+              <div className="glass-card-dark p-6 sm:p-8 mb-8">
                 <div className="flex items-center space-x-3 mb-6">
-                  <Code className="text-accent" size={32} />
-                  <h2 className="text-2xl sm:text-3xl font-bold text-primary">
+                  <div className="icon-box">
+                    <Code size={22} />
+                  </div>
+                  <h2 className="text-2xl font-bold text-slate-100">
                     Core Competencies
                   </h2>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <h3 className="font-semibold text-primary mb-2">Backend Development</h3>
-                    <p className="text-gray-600">
-                      Django, Django REST Framework, Flask, Python, RESTful APIs
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary mb-2">Frontend Development</h3>
-                    <p className="text-gray-600">
-                      React, TypeScript, Tailwind CSS, Modern UI/UX
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary mb-2">DevOps & Cloud</h3>
-                    <p className="text-gray-600">
-                      Azure, DigitalOcean, CI/CD, Docker, Nginx, Gunicorn, systemd
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary mb-2">Database Management</h3>
-                    <p className="text-gray-600">
-                      PostgreSQL, Redis, MongoDB, Query Optimization
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-
-            {/* Education */}
-            <AnimatedSection delay={0.3}>
-              <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 mb-8 border border-gray-100">
-                <div className="flex items-center space-x-3 mb-6">
-                  <Award className="text-accent" size={32} />
-                  <h2 className="text-2xl sm:text-3xl font-bold text-primary">
-                    Education & Certifications
-                  </h2>
-                </div>
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-xl font-bold text-primary">
-                      Bachelor of Science in Information Technology
-                    </h3>
-                    <p className="text-gray-600">Kenyatta University • Nairobi, Kenya</p>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-primary">
-                      DevOps & Cloud Engineering Training
-                    </h3>
-                    <p className="text-gray-600">Moringa School</p>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-primary">
-                      Linux Systems Administration
-                    </h3>
-                    <p className="text-gray-600">
-                      Self-taught • Nearly 2 years of hands-on experience with Ubuntu server
-                      administration
-                    </p>
-                  </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {competencies.map((comp) => (
+                    <div key={comp.title}>
+                      <h3 className="font-semibold text-blue-400 mb-1">{comp.title}</h3>
+                      <p className="text-slate-400 text-sm leading-relaxed">{comp.items}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </AnimatedSection>
 
             {/* Professional Experience */}
-            <AnimatedSection delay={0.4}>
-              <div className="bg-gradient-to-br from-accent/5 to-primary/5 rounded-lg p-6 sm:p-8 mb-8">
+            <AnimatedSection delay={0.3}>
+              <div className="glass-card-dark p-6 sm:p-8 mb-8">
                 <div className="flex items-center space-x-3 mb-6">
-                  <Briefcase className="text-accent" size={32} />
-                  <h2 className="text-2xl sm:text-3xl font-bold text-primary">
+                  <div className="icon-box">
+                    <Briefcase size={22} />
+                  </div>
+                  <h2 className="text-2xl font-bold text-slate-100">
                     Professional Experience
                   </h2>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-primary mb-2">
-                    Backend Engineer / DevOps Lead
-                  </h3>
-                  <p className="text-gray-600 mb-4">Remote Startup • 5 months</p>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start space-x-2">
-                      <span className="text-accent mt-1">•</span>
-                      <span>
-                        Led full backend design and deployment for the startup's MVP
-                      </span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-accent mt-1">•</span>
-                      <span>
-                        Implemented CI/CD pipelines with automated testing and Telegram
-                        notifications
-                      </span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-accent mt-1">•</span>
-                      <span>
-                        Configured server automation, scaling, and security across multiple
-                        DigitalOcean droplets
-                      </span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-accent mt-1">•</span>
-                      <span>
-                        Training new recruits to handle system maintenance as part of transition
-                      </span>
-                    </li>
-                  </ul>
+                <div className="space-y-8">
+                  {experiences.map((exp, idx) => (
+                    <div key={idx} className={idx > 0 ? 'pt-8 border-t border-slate-700/50' : ''}>
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
+                        <div>
+                          <h3 className="text-lg font-bold text-slate-100">{exp.title}</h3>
+                          <p className="text-blue-400 font-medium text-sm">{exp.company}</p>
+                        </div>
+                        <span className="text-sm text-slate-500 font-medium mt-1 sm:mt-0">{exp.period}</span>
+                      </div>
+                      <ul className="space-y-2">
+                        {exp.items.map((item, i) => (
+                          <li key={i} className="flex items-start space-x-3 text-slate-300 text-sm">
+                            <CheckCircle size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
               </div>
             </AnimatedSection>
 
-            {/* Contact Info */}
+            {/* Education */}
+            <AnimatedSection delay={0.4}>
+              <div className="glass-card-dark p-6 sm:p-8 mb-8">
+                <div className="flex items-center space-x-3 mb-6">
+                  <div className="icon-box">
+                    <Award size={22} />
+                  </div>
+                  <h2 className="text-2xl font-bold text-slate-100">
+                    Education & Training
+                  </h2>
+                </div>
+                <div className="space-y-5">
+                  {education.map((edu, idx) => (
+                    <div key={idx} className={idx > 0 ? 'pt-5 border-t border-slate-700/50' : ''}>
+                      <h3 className="text-lg font-bold text-slate-100">{edu.title}</h3>
+                      <p className="text-slate-400 text-sm">{edu.institution}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Certifications & Goals */}
             <AnimatedSection delay={0.5}>
-              <div className="text-center bg-primary text-white rounded-lg p-6 sm:p-8">
-                <h3 className="text-xl font-bold mb-4">Get in Touch</h3>
-                <p className="mb-2">Email: mwakionyambu57@gmail.com</p>
-                <p className="mb-4">GitHub: github.com/57nyambu</p>
-                <p className="text-sm text-gray-300">
-                  Currently preparing for Azure Cloud certification
-                </p>
+              <div className="glass-card-dark p-6 sm:p-8">
+                <div className="flex items-center space-x-3 mb-6">
+                  <div className="icon-box">
+                    <Shield size={22} />
+                  </div>
+                  <h2 className="text-2xl font-bold text-slate-100">
+                    Certifications & Industry Focus
+                  </h2>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-start space-x-3 text-slate-300">
+                    <CheckCircle size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                    <span>Preparing for Azure Cloud certification</span>
+                  </div>
+                  <div className="flex items-start space-x-3 text-slate-300">
+                    <CheckCircle size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                    <span>Hands-on experience with ISO 20022 international payment standards</span>
+                  </div>
+                  <div className="flex items-start space-x-3 text-slate-300">
+                    <CheckCircle size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                    <span>Tazama transaction monitoring integration for AML/CFT compliance</span>
+                  </div>
+                  <div className="flex items-start space-x-3 text-slate-300">
+                    <Server size={16} className="text-blue-400 flex-shrink-0 mt-0.5" />
+                    <span>Focused on enterprise SaaS, fintech, and regulatory-compliant systems</span>
+                  </div>
+                </div>
               </div>
             </AnimatedSection>
           </div>

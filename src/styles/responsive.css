@@ -151,11 +151,6 @@ img {
   }
 }
 
-/* Dark mode support (optional - for future enhancement) */
-@media (prefers-color-scheme: dark) {
-  /* Dark mode styles can be added here if needed */
-}
-
 /* Print styles */
 @media print {
   nav,
@@ -166,11 +161,19 @@ img {
   }
 
   body {
-    background: white;
-    color: black;
+    background: white !important;
+    color: black !important;
   }
 
   a {
     text-decoration: underline;
+    color: #1e3a5f !important;
+  }
+
+  .glass-card-dark,
+  .glass-card {
+    background: white !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
   }
 }
