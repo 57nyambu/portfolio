@@ -121,15 +121,15 @@ const Resume = () => {
                   <div className="icon-box">
                     <Code size={22} />
                   </div>
-                  <h2 className="text-2xl font-bold text-slate-100">
+                  <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
                     Core Competencies
                   </h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {competencies.map((comp) => (
                     <div key={comp.title}>
-                      <h3 className="font-semibold text-blue-400 mb-1">{comp.title}</h3>
-                      <p className="text-slate-400 text-sm leading-relaxed">{comp.items}</p>
+                      <h3 className="font-semibold mb-1" style={{ color: 'var(--orange)' }}>{comp.title}</h3>
+                      <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{comp.items}</p>
                     </div>
                   ))}
                 </div>
@@ -143,24 +143,24 @@ const Resume = () => {
                   <div className="icon-box">
                     <Briefcase size={22} />
                   </div>
-                  <h2 className="text-2xl font-bold text-slate-100">
+                  <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
                     Professional Experience
                   </h2>
                 </div>
                 <div className="space-y-8">
                   {experiences.map((exp, idx) => (
-                    <div key={idx} className={idx > 0 ? 'pt-8 border-t border-slate-700/50' : ''}>
+                    <div key={idx} className={idx > 0 ? 'pt-8 border-t' : ''} style={idx > 0 ? { borderColor: 'var(--line)' } : {}}>
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
                         <div>
-                          <h3 className="text-lg font-bold text-slate-100">{exp.title}</h3>
-                          <p className="text-blue-400 font-medium text-sm">{exp.company}</p>
+                          <h3 className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>{exp.title}</h3>
+                          <p className="font-medium text-sm" style={{ color: 'var(--orange)' }}>{exp.company}</p>
                         </div>
-                        <span className="text-sm text-slate-500 font-medium mt-1 sm:mt-0">{exp.period}</span>
+                        <span className="text-sm font-medium mt-1 sm:mt-0" style={{ color: 'var(--gray)' }}>{exp.period}</span>
                       </div>
                       <ul className="space-y-2">
                         {exp.items.map((item, i) => (
-                          <li key={i} className="flex items-start space-x-3 text-slate-300 text-sm">
-                            <CheckCircle size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                          <li key={i} className="flex items-start space-x-3 text-sm" style={{ color: 'var(--text-secondary)' }}>
+                            <CheckCircle size={16} className="flex-shrink-0 mt-0.5" style={{ color: 'var(--orange)' }} />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -178,15 +178,15 @@ const Resume = () => {
                   <div className="icon-box">
                     <Award size={22} />
                   </div>
-                  <h2 className="text-2xl font-bold text-slate-100">
+                  <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
                     Education & Training
                   </h2>
                 </div>
                 <div className="space-y-5">
                   {education.map((edu, idx) => (
-                    <div key={idx} className={idx > 0 ? 'pt-5 border-t border-slate-700/50' : ''}>
-                      <h3 className="text-lg font-bold text-slate-100">{edu.title}</h3>
-                      <p className="text-slate-400 text-sm">{edu.institution}</p>
+                    <div key={idx} className={idx > 0 ? 'pt-5 border-t' : ''} style={idx > 0 ? { borderColor: 'var(--line)' } : {}}>
+                      <h3 className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>{edu.title}</h3>
+                      <p className="text-sm" style={{ color: 'var(--gray)' }}>{edu.institution}</p>
                     </div>
                   ))}
                 </div>
@@ -200,25 +200,25 @@ const Resume = () => {
                   <div className="icon-box">
                     <Shield size={22} />
                   </div>
-                  <h2 className="text-2xl font-bold text-slate-100">
+                  <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
                     Certifications & Industry Focus
                   </h2>
                 </div>
                 <div className="space-y-3">
-                  <div className="flex items-start space-x-3 text-slate-300">
-                    <CheckCircle size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <div className="flex items-start space-x-3" style={{ color: 'var(--text-secondary)' }}>
+                    <CheckCircle size={16} className="flex-shrink-0 mt-0.5" style={{ color: 'var(--orange)' }} />
                     <span>Preparing for Azure Cloud certification</span>
                   </div>
-                  <div className="flex items-start space-x-3 text-slate-300">
-                    <CheckCircle size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <div className="flex items-start space-x-3" style={{ color: 'var(--text-secondary)' }}>
+                    <CheckCircle size={16} className="flex-shrink-0 mt-0.5" style={{ color: 'var(--orange)' }} />
                     <span>Hands-on experience with ISO 20022 international payment standards</span>
                   </div>
-                  <div className="flex items-start space-x-3 text-slate-300">
-                    <CheckCircle size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <div className="flex items-start space-x-3" style={{ color: 'var(--text-secondary)' }}>
+                    <CheckCircle size={16} className="flex-shrink-0 mt-0.5" style={{ color: 'var(--orange)' }} />
                     <span>Tazama transaction monitoring integration for AML/CFT compliance</span>
                   </div>
-                  <div className="flex items-start space-x-3 text-slate-300">
-                    <Server size={16} className="text-blue-400 flex-shrink-0 mt-0.5" />
+                  <div className="flex items-start space-x-3" style={{ color: 'var(--text-secondary)' }}>
+                    <Server size={16} className="flex-shrink-0 mt-0.5" style={{ color: 'var(--orange)' }} />
                     <span>Focused on enterprise SaaS, fintech, and regulatory-compliant systems</span>
                   </div>
                 </div>

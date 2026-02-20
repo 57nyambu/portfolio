@@ -83,27 +83,27 @@ const About = () => {
 
             {/* Bio Section */}
             <div className="glass-card-dark p-6 sm:p-8">
-              <p className="text-lg text-slate-300 leading-relaxed mb-4">
-                I'm a <span className="text-blue-400 font-semibold">Full Stack Developer</span> and{' '}
-                <span className="text-blue-400 font-semibold">Cloud Architect</span> with deep expertise
+              <p className="text-lg leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
+                I'm a <span style={{ color: 'var(--orange)', fontWeight: 600 }}>Full Stack Developer</span> and{' '}
+                <span style={{ color: 'var(--orange)', fontWeight: 600 }}>Cloud Architect</span> with deep expertise
                 in building production systems for business, fintech, and enterprise clients.
               </p>
-              <p className="text-lg text-slate-300 leading-relaxed mb-4">
+              <p className="text-lg leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
                 I completed specialized training at{' '}
-                <span className="text-purple-400 font-semibold">Moringa School</span> in DevOps and
+                <span style={{ color: 'var(--orange)', fontWeight: 600 }}>Moringa School</span> in DevOps and
                 Cloud Engineering, and hold a{' '}
-                <span className="text-slate-200 font-semibold">Bachelor of Science in Information Technology</span>{' '}
+                <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>Bachelor of Science in Information Technology</span>{' '}
                 from Kenyatta University.
               </p>
-              <p className="text-lg text-slate-300 leading-relaxed mb-4">
+              <p className="text-lg leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
                 My expertise spans building full-stack eCommerce platforms, financial management
-                systems, and enterprise tools—deployed on <span className="text-slate-200 font-semibold">Azure</span> and{' '}
-                <span className="text-slate-200 font-semibold">DigitalOcean</span> with automated CI/CD pipelines, 
+                systems, and enterprise tools—deployed on <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>Azure</span> and{' '}
+                <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>DigitalOcean</span> with automated CI/CD pipelines, 
                 security hardening, and scalable infrastructure.
               </p>
-              <p className="text-lg text-slate-300 leading-relaxed">
-                I have hands-on experience with <span className="text-emerald-400 font-semibold">ISO 20022</span> payment 
-                messaging standards and <span className="text-emerald-400 font-semibold">Tazama</span>—an open-source 
+              <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                I have hands-on experience with <span style={{ color: 'var(--orange)', fontWeight: 600 }}>ISO 20022</span> payment 
+                messaging standards and <span style={{ color: 'var(--orange)', fontWeight: 600 }}>Tazama</span>—an open-source 
                 transaction monitoring and fraud detection system—supporting clients processing inter-continental 
                 and international transactions with full regulatory compliance.
               </p>
@@ -132,12 +132,12 @@ const About = () => {
                       <div className="icon-box">
                         <skill.icon size={22} />
                       </div>
-                      <h3 className="text-lg font-bold text-slate-100">{skill.category}</h3>
+                      <h3 className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>{skill.category}</h3>
                     </div>
                     <ul className="space-y-2">
                       {skill.items.map((item) => (
-                        <li key={item} className="text-slate-400 flex items-center space-x-2 text-sm">
-                          <GitBranch size={14} className="text-blue-400 flex-shrink-0" />
+                        <li key={item} className="flex items-center space-x-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
+                          <GitBranch size={14} className="flex-shrink-0" style={{ color: 'var(--orange)' }} />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -168,15 +168,15 @@ const About = () => {
                   <div className="glass-card-dark p-6 sm:p-8">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                       <div>
-                        <h3 className="text-xl font-bold text-slate-100">{exp.title}</h3>
-                        <p className="text-blue-400 font-medium">{exp.company}</p>
+                        <h3 className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>{exp.title}</h3>
+                        <p className="font-medium" style={{ color: 'var(--orange)' }}>{exp.company}</p>
                       </div>
-                      <span className="text-sm text-slate-500 mt-1 sm:mt-0">{exp.period}</span>
+                      <span className="text-sm mt-1 sm:mt-0" style={{ color: 'var(--gray)' }}>{exp.period}</span>
                     </div>
                     <ul className="space-y-3">
                       {exp.highlights.map((item, i) => (
-                        <li key={i} className="flex items-start space-x-3 text-slate-300">
-                          <CheckCircle size={18} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                        <li key={i} className="flex items-start space-x-3" style={{ color: 'var(--text-secondary)' }}>
+                          <CheckCircle size={18} className="flex-shrink-0 mt-0.5" style={{ color: 'var(--orange)' }} />
                           <span>{item}</span>
                         </li>
                       ))}

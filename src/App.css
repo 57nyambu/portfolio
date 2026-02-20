@@ -1,4 +1,4 @@
-/* App Root — Dark Professional Theme */
+/* App Root — Warm Cream Theme */
 #root {
   width: 100%;
   margin: 0;
@@ -11,10 +11,15 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: #0a0f1a;
-  color: #e2e8f0;
+  background: var(--bg-primary, #f5f0e8);
+  color: var(--text-primary, #0e0e0e);
 }
 
 .layout-root > main {
   flex: 1;
+}
+
+/* Main offset for non-home pages */
+.main-offset {
+  padding-top: var(--nav-height, 4rem);
 }

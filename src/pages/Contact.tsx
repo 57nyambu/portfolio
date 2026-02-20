@@ -87,7 +87,7 @@ const Contact = () => {
               {serviceAreas.map((area, idx) => (
                 <div key={idx} className="home-client-pill">
                   <area.icon size={16} className="home-client-icon" />
-                  <span className="text-sm text-slate-300">{area.label}</span>
+                  <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>{area.label}</span>
                 </div>
               ))}
             </div>
@@ -101,7 +101,7 @@ const Contact = () => {
                   transition={{ duration: 0.5 }}
                   className="glass-card-dark p-6 sm:p-8"
                 >
-                  <h2 className="text-xl font-bold text-slate-100 mb-6">Send a Message</h2>
+                  <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>Send a Message</h2>
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
@@ -195,13 +195,14 @@ const Contact = () => {
                       disabled={status === 'sending'}
                       whileHover={{ scale: status === 'sending' ? 1 : 1.02 }}
                       whileTap={{ scale: status === 'sending' ? 1 : 0.98 }}
-                      className={`w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
-                        status === 'sending'
-                          ? 'bg-slate-600 cursor-not-allowed text-slate-400'
-                          : status === 'sent'
-                          ? 'bg-emerald-600 text-white'
-                          : 'bg-gradient-to-r from-blue-600 to-blue-500 text-white hover:from-blue-500 hover:to-blue-400 shadow-lg shadow-blue-500/20'
-                      }`}
+                      className="w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300"
+                      style={{
+                        background: status === 'sending' ? 'var(--gray)' : status === 'sent' ? '#16a34a' : 'var(--orange)',
+                        color: '#fff',
+                        cursor: status === 'sending' ? 'not-allowed' : 'pointer',
+                        opacity: status === 'sending' ? 0.7 : 1,
+                        boxShadow: status === 'idle' ? '0 4px 14px rgba(240,92,42,0.3)' : 'none',
+                      }}
                     >
                       {status === 'sending' ? (
                         <span>Sending...</span>
@@ -223,7 +224,7 @@ const Contact = () => {
                 <div className="space-y-6">
                   {/* Connect Links */}
                   <div className="glass-card-dark p-6 sm:p-8">
-                    <h2 className="text-xl font-bold text-slate-100 mb-6">Connect Directly</h2>
+                    <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>Connect Directly</h2>
                     <div className="space-y-3">
                       {socialLinks.map((social) => (
                         <a
@@ -231,14 +232,15 @@ const Contact = () => {
                           href={social.url}
                           target={social.name !== 'Email' ? '_blank' : undefined}
                           rel={social.name !== 'Email' ? 'noopener noreferrer' : undefined}
-                          className="flex items-center space-x-4 p-4 rounded-lg bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 group border border-slate-700/30 hover:border-slate-600/50"
+                          className="flex items-center space-x-4 p-4 rounded-lg transition-all duration-300 group"
+                          style={{ background: 'rgba(0,0,0,0.03)', border: '1px solid var(--line)' }}
                         >
                           <div className="icon-box">
                             <social.icon size={20} />
                           </div>
                           <div>
-                            <p className="font-semibold text-slate-200 text-sm">{social.name}</p>
-                            <p className="text-xs text-slate-400">{social.label}</p>
+                            <p className="font-semibold text-sm" style={{ color: 'var(--text-primary)' }}>{social.name}</p>
+                            <p className="text-xs" style={{ color: 'var(--gray)' }}>{social.label}</p>
                           </div>
                         </a>
                       ))}
@@ -246,15 +248,15 @@ const Contact = () => {
                   </div>
 
                   {/* Availability */}
-                  <div className="glass-card-dark p-6 sm:p-8 border-emerald-500/20">
+                  <div className="glass-card-dark p-6 sm:p-8" style={{ borderColor: 'var(--orange)', borderWidth: '1px' }}>
                     <div className="flex items-center space-x-3 mb-4">
-                      <div className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse" />
-                      <h3 className="text-lg font-bold text-slate-100">Currently Available</h3>
+                      <div className="w-3 h-3 rounded-full animate-pulse" style={{ background: 'var(--orange)' }} />
+                      <h3 className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>Currently Available</h3>
                     </div>
-                    <p className="text-slate-300 text-sm mb-4">
+                    <p className="text-sm mb-4" style={{ color: 'var(--text-secondary)' }}>
                       Open to enterprise contracts, fintech integrations, cloud consulting, and full-time opportunities.
                     </p>
-                    <div className="flex items-center space-x-2 text-slate-400 text-sm">
+                    <div className="flex items-center space-x-2 text-sm" style={{ color: 'var(--gray)' }}>
                       <Clock size={14} />
                       <span>Typical response within 24 hours</span>
                     </div>

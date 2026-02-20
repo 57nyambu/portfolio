@@ -1,18 +1,16 @@
-/* Glass card primitives — dark theme */
+/* ============ Card Primitives — Warm Cream Theme ============ */
 
 .glass-card {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(71, 85, 105, 0.2);
+  background: var(--card-bg);
+  border: 1px solid var(--line);
   border-radius: 0.75rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
   transition: box-shadow 180ms ease, transform 180ms ease;
 }
 
 .glass-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 .badge {
@@ -21,9 +19,10 @@
   gap: 0.4rem;
   padding: 0.25rem 0.6rem;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
   font-weight: 600;
-  color: #60a5fa;
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: var(--orange);
+  background: rgba(240, 92, 42, 0.08);
+  border: 1px solid rgba(240, 92, 42, 0.15);
 }

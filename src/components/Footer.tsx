@@ -22,27 +22,32 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="footer-inner">
           {/* Brand & Description */}
-          <div className="footer-brand-section">
+          <div>
             <div className="flex items-center gap-3 mb-3">
-              <img src="/tom-logo.svg" alt="Tom Nyambu" className="footer-logo" />
-              <span className="text-lg font-bold text-slate-100">
-                Tom<span className="text-purple-400">Nyambu</span>
+              <img
+                src="/tom-logo.svg"
+                alt="Tom Nyambu"
+                style={{ height: '2rem', width: 'auto', filter: 'invert(1)' }}
+              />
+              <span className="text-lg font-bold" style={{ color: 'var(--white)' }}>
+                Tom<span style={{ color: 'var(--orange)' }}>Nyambu</span>
               </span>
             </div>
-            <p className="text-sm text-slate-400 max-w-xs leading-relaxed">
+            <p className="text-sm max-w-xs leading-relaxed" style={{ color: 'rgba(250,250,248,0.6)' }}>
               Full Stack Engineer & Cloud Architect specializing in enterprise platforms, fintech solutions, and scalable cloud deployments.
             </p>
           </div>
 
           {/* Quick Links */}
-          <div className="footer-links-section">
-            <h4 className="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-3">Navigation</h4>
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider mb-3" style={{ color: 'rgba(250,250,248,0.7)' }}>Navigation</h4>
             <div className="flex flex-col gap-2">
               {quickLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
-                  className="text-sm text-slate-400 hover:text-blue-400 transition-colors duration-200"
+                  className="text-sm transition-colors duration-200"
+                  style={{ color: 'rgba(250,250,248,0.5)' }}
                 >
                   {link.name}
                 </Link>
@@ -51,8 +56,8 @@ const Footer = () => {
           </div>
 
           {/* Social Links */}
-          <div className="footer-social-section">
-            <h4 className="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-3">Connect</h4>
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider mb-3" style={{ color: 'rgba(250,250,248,0.7)' }}>Connect</h4>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a
@@ -72,10 +77,10 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="footer-bottom">
-          <p className="text-xs text-slate-500">
+          <p className="text-xs" style={{ color: 'rgba(250,250,248,0.4)' }}>
             &copy; {currentYear} Tom Nyambu. All rights reserved.
           </p>
-          <p className="text-xs text-slate-600">
+          <p className="text-xs" style={{ color: 'rgba(250,250,248,0.3)' }}>
             Enterprise · Fintech · Cloud Solutions
           </p>
         </div>

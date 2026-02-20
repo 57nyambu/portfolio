@@ -1,97 +1,30 @@
-/* Responsive Styles for Tom Nyambu Portfolio */
-/* Following breakpoints: mobile (360px+), tablet (768px+), desktop (1024px+) */
+/* ============ RESPONSIVE — Portfolio Global — Warm Cream Theme ============ */
+/* Breakpoints: mobile (360px+), tablet (768px+), desktop (1024px+), wide (1280px+) */
 
-/* Base styles for mobile-first approach */
+/* Base */
 * {
   box-sizing: border-box;
 }
 
-/* Typography scaling with clamp() */
+/* Typography scaling */
 h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: 1.2;
+  font-size: clamp(1.75rem, 5vw, 3.5rem);
+  line-height: 1.15;
 }
 
 h2 {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  line-height: 1.3;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.25;
 }
 
 h3 {
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  line-height: 1.4;
+  font-size: clamp(1.125rem, 3vw, 1.75rem);
+  line-height: 1.35;
 }
 
 p {
-  font-size: clamp(1rem, 2vw, 1.125rem);
-  line-height: 1.6;
-}
-
-/* Container responsive padding */
-.container {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-
-/* Navigation responsive adjustments */
-@media (max-width: 767px) {
-  nav {
-    padding: 0.5rem 0;
-  }
-
-  nav .logo {
-    font-size: 1.5rem;
-  }
-}
-
-/* Card layouts */
-@media (max-width: 767px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .card-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .card-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-}
-
-/* Button responsive sizing */
-button,
-.btn {
-  padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 3vw, 2rem);
-  font-size: clamp(0.875rem, 2vw, 1rem);
-}
-
-/* Form elements */
-input,
-textarea,
-select {
-  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-size: clamp(0.875rem, 1.5vw + 0.25rem, 1.125rem);
+  line-height: 1.65;
 }
 
 /* Image responsiveness */
@@ -100,40 +33,105 @@ img {
   height: auto;
 }
 
-/* Spacing utilities for different screen sizes */
+/* ====== MOBILE-FIRST ADJUSTMENTS ====== */
+
+/* Touch target sizing */
+@media (pointer: coarse) {
+  button,
+  a,
+  .home-btn,
+  .action-button,
+  .category-filter-btn,
+  .navbar-mobile-link {
+    min-height: 44px;
+  }
+}
+
+/* Spacing utilities */
 .section-spacing {
   padding-top: clamp(2rem, 5vw, 4rem);
   padding-bottom: clamp(2rem, 5vw, 4rem);
 }
 
-/* Hero section adjustments */
+/* ====== PHONE ====== */
 @media (max-width: 767px) {
-  .hero {
-    min-height: calc(100vh - 4rem);
-    padding: 2rem 1rem;
+  /* Page containers */
+  .page-dark .container,
+  .page-wrapper .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .page-dark .container > div,
+  .page-wrapper .container > div {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  /* Section headings */
+  .section-heading {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-heading-sm {
+    font-size: 1.35rem;
+  }
+
+  .section-subheading {
+    font-size: 0.95rem;
+  }
+
+  .section-eyebrow {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  /* Glass cards */
+  .glass-card,
+  .glass-card-dark {
+    border-radius: 0.75rem;
+  }
+
+  /* Icon box */
+  .icon-box {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.625rem;
+  }
+
+  /* Form inputs */
+  .form-input {
+    padding: 0.7rem 0.875rem;
+    font-size: 1rem; /* prevents zoom on iOS */
+  }
+
+  /* Grid overrides — stack on mobile */
+  [class*="grid"][class*="md:grid-cols"],
+  [class*="grid"][class*="lg:grid-cols"] {
+    grid-template-columns: 1fr !important;
   }
 }
 
-@media (min-width: 768px) {
-  .hero {
-    min-height: calc(100vh - 5rem);
-    padding: 3rem 2rem;
+/* ====== TABLET ====== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .page-dark .container,
+  .page-wrapper .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
 
-/* Footer responsive layout */
-@media (max-width: 767px) {
-  footer {
-    text-align: center;
-  }
-
-  footer .social-links {
-    justify-content: center;
-    gap: 1rem;
+/* ====== DESKTOP ====== */
+@media (min-width: 1024px) {
+  .page-dark .container,
+  .page-wrapper .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
-/* Accessibility improvements */
+/* ====== ACCESSIBILITY ====== */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -141,17 +139,22 @@ img {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-/* High contrast mode support */
 @media (prefers-contrast: high) {
   * {
     border-color: currentColor;
   }
+
+  .glass-card,
+  .glass-card-dark {
+    border-width: 2px;
+  }
 }
 
-/* Print styles */
+/* ====== PRINT ====== */
 @media print {
   nav,
   footer,
@@ -167,11 +170,11 @@ img {
 
   a {
     text-decoration: underline;
-    color: #1e3a5f !important;
+    color: var(--black) !important;
   }
 
-  .glass-card-dark,
-  .glass-card {
+  .glass-card,
+  .glass-card-dark {
     background: white !important;
     border: 1px solid #ccc !important;
     box-shadow: none !important;

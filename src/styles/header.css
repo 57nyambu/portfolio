@@ -1,4 +1,4 @@
-/* Header-specific refinements — dark theme */
+/* ============ Header Refinements — Warm Cream Theme ============ */
 
 /* Remove default focus outlines for mouse users; handled globally via :focus-visible */
 a:focus:not(:focus-visible),
@@ -8,20 +8,21 @@ button:focus:not(:focus-visible) {
 
 /* CTA buttons in the header */
 .header-cta {
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), 0 6px 18px rgba(0, 0, 0, 0.2);
-}
-.header-cta:hover {
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15), 0 10px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 0 rgba(14, 14, 14, 0.04), 0 4px 12px rgba(14, 14, 14, 0.06);
 }
 
-/* Gradient border button — dark variant */
+.header-cta:hover {
+  box-shadow: 0 2px 0 rgba(14, 14, 14, 0.06), 0 6px 18px rgba(14, 14, 14, 0.1);
+}
+
+/* Gradient border button — warm variant */
 .btn-gradient {
   position: relative;
-  background: rgba(15, 23, 42, 0.8);
+  background: var(--white);
   border-color: transparent;
   isolation: isolate;
   border-radius: 999px;
-  color: #e2e8f0;
+  color: var(--text-primary);
 }
 
 .btn-gradient::before {
@@ -30,9 +31,9 @@ button:focus:not(:focus-visible) {
   inset: 0;
   padding: 1px;
   border-radius: inherit;
-  background: linear-gradient(120deg, #3b82f6, #8b5cf6, #60a5fa);
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
+  background: linear-gradient(120deg, var(--orange), var(--orange-light), var(--orange));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   mask:
     linear-gradient(#fff 0 0) content-box,
@@ -43,12 +44,19 @@ button:focus:not(:focus-visible) {
 }
 
 .btn-gradient:hover {
-  color: #fff !important;
-  background: linear-gradient(120deg, #3b82f6, #8b5cf6, #60a5fa);
+  color: var(--white) !important;
+  background: linear-gradient(120deg, var(--orange), var(--orange-light));
 }
 
-.btn-gradient:hover::before { opacity: 0; }
+.btn-gradient:hover::before {
+  opacity: 0;
+}
 
 /* Safe-area utilities for notched devices */
-.pt-safe { padding-top: max(env(safe-area-inset-top), 1rem); }
-.pb-safe { padding-bottom: max(env(safe-area-inset-bottom), 1rem); }
+.pt-safe {
+  padding-top: max(env(safe-area-inset-top), 1rem);
+}
+
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom), 1rem);
+}
