@@ -1,0 +1,55 @@
+# ==============================================================
+# robots.txt — tomnyambu.dev
+# Tom Nyambu | Full Stack Engineer & Cloud Architect | Kenya
+#
+# Strategy: Open to all legitimate crawlers.
+# Block only non-public utility paths to preserve crawl budget.
+# ==============================================================
+
+# --- All major search engines ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# --- Block AI training crawlers (optional but recommended) ---
+# These do not contribute to search rankings.
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# --- Block all other bots by default ---
+User-agent: *
+Allow: /
+
+# Block any API routes or private paths (adjust to match your actual routes)
+Disallow: /api/
+Disallow: /.env
+Disallow: /admin/
+
+# Crawl delay — be courteous to servers
+Crawl-delay: 10
+
+# --- Sitemap ---
+Sitemap: https://tomnyambu.dev/sitemap.xml
