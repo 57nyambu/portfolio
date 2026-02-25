@@ -1,204 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ============================================================
-  Sitemap for tomnyambu.dev
-  Tom Nyambu — Full Stack Engineer & Cloud Architect
-  Fintech | DevOps | SysAdmin | SaaS | Enterprise Solutions
-  Nairobi, Kenya | East Africa | Africa
-
-  SEO Strategy:
-  - hreflang geo-targeting for Kenya (en-KE), Africa (en-001), Global (en)
-  - Priorities tuned to signal most valuable pages to crawlers
-  - changefreq aligned with how often each section actually updates
-  - lastmod kept current to encourage frequent re-crawling
-  - Image sitemap namespace included for project/portfolio assets
-  ============================================================
--->
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
   xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
 >
 
-  <!-- ==================== HOME ==================== -->
-  <!-- Highest priority — first impression, keyword-rich hero section -->
   <url>
     <loc>https://tomnyambu.dev/</loc>
     <lastmod>2026-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-
-    <!-- Kenya — primary geo-target -->
-    <xhtml:link
-      rel="alternate"
-      hreflang="en-KE"
-      href="https://tomnyambu.dev/"
-    />
-    <!-- Africa (English) — broader regional target -->
-    <xhtml:link
-      rel="alternate"
-      hreflang="en-001"
-      href="https://tomnyambu.dev/"
-    />
-    <!-- Global English fallback -->
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://tomnyambu.dev/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://tomnyambu.dev/"
-    />
+    <xhtml:link rel="alternate" hreflang="en-KE"   href="https://tomnyambu.dev/"/>
+    <xhtml:link rel="alternate" hreflang="en-001"  href="https://tomnyambu.dev/"/>
+    <xhtml:link rel="alternate" hreflang="en"      href="https://tomnyambu.dev/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tomnyambu.dev/"/>
   </url>
 
-  <!-- ==================== ABOUT ==================== -->
-  <!-- Bio, skills, tech stack, experience — critical for "who is X" searches -->
   <url>
     <loc>https://tomnyambu.dev/about</loc>
     <lastmod>2026-02-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-
-    <xhtml:link
-      rel="alternate"
-      hreflang="en-KE"
-      href="https://tomnyambu.dev/about"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en-001"
-      href="https://tomnyambu.dev/about"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://tomnyambu.dev/about"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://tomnyambu.dev/about"
-    />
+    <xhtml:link rel="alternate" hreflang="en-KE"   href="https://tomnyambu.dev/about"/>
+    <xhtml:link rel="alternate" hreflang="en-001"  href="https://tomnyambu.dev/about"/>
+    <xhtml:link rel="alternate" hreflang="en"      href="https://tomnyambu.dev/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tomnyambu.dev/about"/>
   </url>
 
-  <!-- ==================== PROJECTS ==================== -->
-  <!-- Portfolio — key for "developer Kenya fintech projects" type searches -->
   <url>
     <loc>https://tomnyambu.dev/projects</loc>
     <lastmod>2026-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-
-    <xhtml:link
-      rel="alternate"
-      hreflang="en-KE"
-      href="https://tomnyambu.dev/projects"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en-001"
-      href="https://tomnyambu.dev/projects"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://tomnyambu.dev/projects"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://tomnyambu.dev/projects"
-    />
+    <xhtml:link rel="alternate" hreflang="en-KE"   href="https://tomnyambu.dev/projects"/>
+    <xhtml:link rel="alternate" hreflang="en-001"  href="https://tomnyambu.dev/projects"/>
+    <xhtml:link rel="alternate" hreflang="en"      href="https://tomnyambu.dev/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tomnyambu.dev/projects"/>
   </url>
 
-  <!-- ==================== RESUME ==================== -->
-  <!-- CV/skills page — targets "hire developer Kenya", "cloud architect Africa" -->
   <url>
     <loc>https://tomnyambu.dev/resume</loc>
     <lastmod>2026-02-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-
-    <xhtml:link
-      rel="alternate"
-      hreflang="en-KE"
-      href="https://tomnyambu.dev/resume"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en-001"
-      href="https://tomnyambu.dev/resume"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://tomnyambu.dev/resume"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://tomnyambu.dev/resume"
-    />
+    <xhtml:link rel="alternate" hreflang="en-KE"   href="https://tomnyambu.dev/resume"/>
+    <xhtml:link rel="alternate" hreflang="en-001"  href="https://tomnyambu.dev/resume"/>
+    <xhtml:link rel="alternate" hreflang="en"      href="https://tomnyambu.dev/resume"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tomnyambu.dev/resume"/>
   </url>
 
-  <!-- ==================== CONTACT ==================== -->
-  <!-- Hire/reach me page — targets "hire full stack developer Kenya Nairobi" -->
   <url>
     <loc>https://tomnyambu.dev/contact</loc>
     <lastmod>2026-02-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
-
-    <xhtml:link
-      rel="alternate"
-      hreflang="en-KE"
-      href="https://tomnyambu.dev/contact"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en-001"
-      href="https://tomnyambu.dev/contact"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://tomnyambu.dev/contact"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://tomnyambu.dev/contact"
-    />
+    <xhtml:link rel="alternate" hreflang="en-KE"   href="https://tomnyambu.dev/contact"/>
+    <xhtml:link rel="alternate" hreflang="en-001"  href="https://tomnyambu.dev/contact"/>
+    <xhtml:link rel="alternate" hreflang="en"      href="https://tomnyambu.dev/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tomnyambu.dev/contact"/>
   </url>
-
-  <!--
-    ==================== FUTURE DYNAMIC URLS ====================
-    When you add blog posts, individual project pages, or case studies,
-    add them here. Examples below — uncomment and adapt as needed:
-
-    <url>
-      <loc>https://tomnyambu.dev/projects/fintech-payment-gateway</loc>
-      <lastmod>2026-02-25</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.75</priority>
-      <xhtml:link rel="alternate" hreflang="en-KE" href="https://tomnyambu.dev/projects/fintech-payment-gateway" />
-      <xhtml:link rel="alternate" hreflang="en-001" href="https://tomnyambu.dev/projects/fintech-payment-gateway" />
-      <xhtml:link rel="alternate" hreflang="en" href="https://tomnyambu.dev/projects/fintech-payment-gateway" />
-      <xhtml:link rel="alternate" hreflang="x-default" href="https://tomnyambu.dev/projects/fintech-payment-gateway" />
-    </url>
-
-    <url>
-      <loc>https://tomnyambu.dev/blog/devops-kenya</loc>
-      <lastmod>2026-02-25</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.7</priority>
-      <xhtml:link rel="alternate" hreflang="en-KE" href="https://tomnyambu.dev/blog/devops-kenya" />
-      <xhtml:link rel="alternate" hreflang="en-001" href="https://tomnyambu.dev/blog/devops-kenya" />
-      <xhtml:link rel="alternate" hreflang="en" href="https://tomnyambu.dev/blog/devops-kenya" />
-      <xhtml:link rel="alternate" hreflang="x-default" href="https://tomnyambu.dev/blog/devops-kenya" />
-    </url>
-  -->
 
 </urlset>
