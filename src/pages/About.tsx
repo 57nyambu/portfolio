@@ -1,12 +1,12 @@
 import AnimatedSection from '../components/AnimatedSection';
-import { Code, Cloud, Database, GitBranch, Shield, Building2, Globe, Cpu, CheckCircle } from 'lucide-react';
+import { Code, Cloud, Database, GitBranch, Shield, Building2, Globe, Cpu, CheckCircle, ExternalLink } from 'lucide-react';
 
 const About = () => {
   const skills = [
     {
       category: 'Backend Engineering',
       icon: Code,
-      items: ['Django & DRF', 'Flask', 'Python', 'RESTful APIs', 'JWT Authentication'],
+      items: ['Django & DRF', 'FastAPI', 'Flask', 'Python', 'RESTful APIs', 'JWT Authentication'],
     },
     {
       category: 'Frontend Development',
@@ -16,48 +16,69 @@ const About = () => {
     {
       category: 'Cloud & DevOps',
       icon: Cloud,
-      items: ['Azure (IaaS)', 'DigitalOcean', 'Nginx', 'Gunicorn', 'CI/CD Pipelines', 'Docker'],
+      items: ['Azure (IaaS)', 'DigitalOcean', 'Docker', 'Nginx', 'Gunicorn', 'CI/CD Pipelines', 'Linux Administration'],
     },
     {
-      category: 'Databases & Tools',
+      category: 'Storage & Data',
       icon: Database,
-      items: ['PostgreSQL', 'Redis', 'MongoDB', 'Git', 'Linux Administration'],
+      items: ['PostgreSQL', 'MySQL', 'SQLite', 'MinIO (S3-compatible)', 'Query Optimization', 'Data Modeling'],
     },
     {
       category: 'Fintech & Compliance',
       icon: Shield,
-      items: ['ISO 20022', 'Tazama (AML/CFT)', 'Payment Gateways', 'Transaction Monitoring', 'KRA Integration'],
+      items: ['ISO 20022', 'Tazama (AML/CFT)', 'M-Pesa Integration', 'Payment Gateways', 'KRA Integration'],
     },
     {
-      category: 'Enterprise Solutions',
+      category: 'Platform Engineering',
       icon: Building2,
-      items: ['Multi-tenant SaaS', 'eCommerce Platforms', 'ERP Systems', 'PDF Generation', 'Business Registration'],
+      items: ['Multi-tenant SaaS', 'eCommerce Platforms', 'Email Automation', 'Self-hosted Analytics', 'Business Registration'],
     },
   ];
 
   const experiences = [
     {
-      title: 'Backend Engineer / DevOps Lead',
-      company: 'Remote Startup',
-      period: '5 months',
+      title: 'Backend Developer',
+      company: 'Lipana — Developer Payment Platform',
+      link: 'https://lipana.dev',
       highlights: [
-        'Led full backend design and deployment for the startup\'s MVP using Django & DRF',
-        'Implemented CI/CD pipelines with automated testing, deployment, and Telegram/email notifications',
-        'Configured server automation, scaling, and security across multiple DigitalOcean droplets',
-        'Designed RESTful API architecture serving multiple client applications',
-        'Trained new recruits for system maintenance and operational handover',
+        'Integrated Tazama real-time fraud detection and transaction monitoring into the core payment workflow',
+        'Implemented transaction pipelines aligned with ISO 20022 international financial messaging standards',
+        'Configured and deployed MinIO (S3-compatible) object storage for secure, scalable backend asset management',
+        'Collaborated with cross-functional teams to ensure system reliability, compliance, and data integrity',
       ],
     },
     {
-      title: 'Fintech Integration Engineer',
-      company: 'Client Project — Inter-continental Transactions',
-      period: 'Contract',
+      title: 'Full Stack Developer',
+      company: 'Dima Platform — Multi-Tenant eCommerce',
+      period: '2024 – Present',
+      link: 'https://dima.co.ke',
       highlights: [
-        'Implemented integration with Tazama, an open-source transaction monitoring and fraud detection system for real-time AML/CFT compliance',
-        'Worked with ISO 20022 messaging standards for cross-border and international payment processing',
-        'Designed and deployed transaction screening pipelines for clients handling inter-continental and international fund transfers',
-        'Ensured compliance with regulatory frameworks for financial institutions operating across multiple jurisdictions',
-        'Proof of work and documentation available on demand',
+        'Designed and built a multi-tenant eCommerce platform using Django, DRF, and React',
+        'Integrated M-Pesa payments, SMS & email notification pipelines, and real-time analytics',
+        'Built secure REST APIs covering products, orders, user management, and tenant isolation',
+        'Deployed and maintained infrastructure on cloud IaaS environments',
+      ],
+    },
+    {
+      title: 'Full Stack Developer',
+      company: 'Jangara Mall — Client Project',
+      period: '2025',
+      link: 'https://jangara.tomnyambu.dev',
+      highlights: [
+        'Designed and delivered a complete full-stack platform from database architecture to production deployment',
+        'Built bookings, utilities management, and vendor service workflows',
+        'Handled backend (Django/DRF), frontend (React), and end-to-end cloud deployment',
+      ],
+    },
+    {
+      title: 'Backend Developer',
+      company: 'DevSend — Email Automation Tool',
+      period: 'January 2025',
+      link: null,
+      highlights: [
+        'Built a secure email scheduling and sending platform using FastAPI and the Resend API',
+        'Implemented scheduled sends, rich HTML templates, bulk personalization, and API key rotation',
+        'Included delivery logging, CSV export, admin authentication, and real-time search',
       ],
     },
   ];
@@ -74,38 +95,45 @@ const About = () => {
                 <span>About</span>
               </div>
               <h1 className="section-heading">
-                Building Enterprise-Grade Solutions
+                Building Production-Grade Systems
               </h1>
               <p className="section-subheading">
-                Full Stack Engineer and Cloud Architect specializing in fintech, enterprise platforms, and scalable cloud deployments.
+                Full Stack Developer specializing in fintech integration, multi-tenant platforms, and cloud infrastructure.
               </p>
             </div>
 
             {/* Bio Section */}
             <div className="glass-card-dark p-6 sm:p-8">
               <p className="text-lg leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
-                I'm a <span style={{ color: 'var(--orange)', fontWeight: 600 }}>Full Stack Developer</span> and{' '}
-                <span style={{ color: 'var(--orange)', fontWeight: 600 }}>Cloud Architect</span> with deep expertise
-                in building production systems for business, fintech, and enterprise clients.
+                I'm a <span style={{ color: 'var(--orange)', fontWeight: 600 }}>Full Stack Developer</span> with
+                hands-on experience designing, building, and deploying production web applications end-to-end.
+                I work across the full stack — Python backends, React frontends, and cloud infrastructure —
+                with a focus on systems that are reliable, secure, and built to scale.
               </p>
+
               <p className="text-lg leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
-                I completed specialized training at{' '}
-                <span style={{ color: 'var(--orange)', fontWeight: 600 }}>Moringa School</span> in DevOps and
-                Cloud Engineering, and hold a{' '}
-                <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>Bachelor of Science in Information Technology</span>{' '}
-                from Kenyatta University.
+                I pursued a{' '}
+                <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>
+                  BSc in Information Technology
+                </span>{' '}
+                at{' '}
+                <span style={{ color: 'var(--orange)', fontWeight: 600 }}>
+                  Taita Taveta University
+                </span>.
               </p>
+
               <p className="text-lg leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
-                My expertise spans building full-stack eCommerce platforms, financial management
-                systems, and enterprise tools—deployed on <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>Azure</span> and{' '}
-                <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>DigitalOcean</span> with automated CI/CD pipelines, 
-                security hardening, and scalable infrastructure.
+                I manage production infrastructure running Dockerized services, self-hosted analytics via{' '}
+                <span style={{ color: 'var(--orange)', fontWeight: 600 }}>Umami</span>,
+                and object storage via <span style={{ color: 'var(--orange)', fontWeight: 600 }}>MinIO</span>.
               </p>
+
               <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                I have hands-on experience with <span style={{ color: 'var(--orange)', fontWeight: 600 }}>ISO 20022</span> payment 
-                messaging standards and <span style={{ color: 'var(--orange)', fontWeight: 600 }}>Tazama</span>—an open-source 
-                transaction monitoring and fraud detection system—supporting clients processing inter-continental 
-                and international transactions with full regulatory compliance.
+                In fintech, I have direct experience integrating{' '}
+                <span style={{ color: 'var(--orange)', fontWeight: 600 }}>Tazama</span> for real-time AML/CFT
+                transaction monitoring and working with{' '}
+                <span style={{ color: 'var(--orange)', fontWeight: 600 }}>ISO 20022</span> international payment
+                messaging standards — supporting regulated transaction workflows.
               </p>
             </div>
           </div>
@@ -119,9 +147,7 @@ const About = () => {
                 <Code size={16} />
                 <span>Capabilities</span>
               </div>
-              <h2 className="section-heading-sm">
-                Technical Expertise
-              </h2>
+              <h2 className="section-heading-sm">Technical Expertise</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -132,12 +158,22 @@ const About = () => {
                       <div className="icon-box">
                         <skill.icon size={22} />
                       </div>
-                      <h3 className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>{skill.category}</h3>
+                      <h3 className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>
+                        {skill.category}
+                      </h3>
                     </div>
                     <ul className="space-y-2">
                       {skill.items.map((item) => (
-                        <li key={item} className="flex items-center space-x-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
-                          <GitBranch size={14} className="flex-shrink-0" style={{ color: 'var(--orange)' }} />
+                        <li
+                          key={item}
+                          className="flex items-center space-x-2 text-sm"
+                          style={{ color: 'var(--text-secondary)' }}
+                        >
+                          <GitBranch
+                            size={14}
+                            className="flex-shrink-0"
+                            style={{ color: 'var(--orange)' }}
+                          />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -157,9 +193,7 @@ const About = () => {
                 <Building2 size={16} />
                 <span>Experience</span>
               </div>
-              <h2 className="section-heading-sm">
-                Professional Background
-              </h2>
+              <h2 className="section-heading-sm">Professional Background</h2>
             </div>
 
             <div className="space-y-8">
@@ -168,15 +202,45 @@ const About = () => {
                   <div className="glass-card-dark p-6 sm:p-8">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                       <div>
-                        <h3 className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>{exp.title}</h3>
-                        <p className="font-medium" style={{ color: 'var(--orange)' }}>{exp.company}</p>
+                        <h3 className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>
+                          {exp.title}
+                        </h3>
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <p className="font-medium" style={{ color: 'var(--orange)' }}>
+                            {exp.company}
+                          </p>
+                          {exp.link && (
+                            <a
+                              href={exp.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{ color: 'var(--gray)', display: 'inline-flex', alignItems: 'center' }}
+                            >
+                              <ExternalLink size={13} />
+                            </a>
+                          )}
+                        </div>
                       </div>
-                      <span className="text-sm mt-1 sm:mt-0" style={{ color: 'var(--gray)' }}>{exp.period}</span>
+                      <span
+                        className="text-sm mt-1 sm:mt-0 whitespace-nowrap"
+                        style={{ color: 'var(--gray)' }}
+                      >
+                        {exp.period}
+                      </span>
                     </div>
+
                     <ul className="space-y-3">
                       {exp.highlights.map((item, i) => (
-                        <li key={i} className="flex items-start space-x-3" style={{ color: 'var(--text-secondary)' }}>
-                          <CheckCircle size={18} className="flex-shrink-0 mt-0.5" style={{ color: 'var(--orange)' }} />
+                        <li
+                          key={i}
+                          className="flex items-start space-x-3"
+                          style={{ color: 'var(--text-secondary)' }}
+                        >
+                          <CheckCircle
+                            size={18}
+                            className="flex-shrink-0 mt-0.5"
+                            style={{ color: 'var(--orange)' }}
+                          />
                           <span>{item}</span>
                         </li>
                       ))}
