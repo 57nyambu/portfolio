@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { ReactElement } from 'react';
 import {
   Layers,
   Filter,
@@ -19,7 +20,7 @@ import '../styles/projects.css';
 const StatusBadge = ({ status }: { status?: string }) => {
   if (!status) return null;
 
-  const config: Record<string, { icon: JSX.Element; color: string; bg: string }> = {
+  const config: Record<string, { icon: ReactElement; color: string; bg: string }> = {
     Live: {
       icon: <Radio size={10} />,
       color: '#4ade80',
