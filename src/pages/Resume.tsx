@@ -27,9 +27,9 @@ const Resume = () => {
 
   const experiences = [
     {
-      title:  'Backend Developer',
+      title:  'Internship - Junior Backend Developer',
       company: 'Lipana — Developer Payment Platform',
-      period: 'July 2024 – December 2024',
+      period: 'OCT 2025 – Feb 2025',
       link:   'https://lipana.dev',
       items: [
         'Developed backend infrastructure for a real-time payment processing platform supporting developer-facing APIs',
@@ -42,7 +42,7 @@ const Resume = () => {
     {
       title:  'Full Stack Developer',
       company: 'Dima Platform — Multi-Tenant eCommerce',
-      period: '2024 – Present',
+      period: '2025 – Present',
       link:   'https://dima.co.ke',
       items: [
         'Designed and built a multi-tenant eCommerce and business management platform from the ground up',
@@ -66,7 +66,7 @@ const Resume = () => {
     {
       title:  'Backend Developer',
       company: 'DevSend — Email Automation Tool',
-      period: 'January 2025',
+      period: '2025',
       link:   null,
       items: [
         'Built a secure email scheduling platform on FastAPI integrated with the Resend API',
@@ -79,7 +79,7 @@ const Resume = () => {
   const education = [
     {
       title: 'Bachelor of Science in Information Technology',
-      institution: 'Taita Taveta University — Third Year Undergraduate (Expected Graduation: Early 2027)',
+      institution: 'Taita Taveta University — BSc in Information Technology',
     },
     {
       title: 'Independent & Online Learning',
