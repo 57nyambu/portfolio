@@ -1,8 +1,17 @@
+import { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Download, Code2, Cloud, Shield, Building2, TrendingUp, Server } from 'lucide-react';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { downloadResume } from '../utils/resume';
 import '../styles/home.css';
+
+// The dotlottie player is the single heaviest dependency on this page
+// (~500KB). It's purely decorative, so it's split into its own chunk and
+// loaded after the hero text/CTAs are already interactive, instead of
+// blocking the initial render of the most-visited page on the site.
+const DotLottieReact = lazy(() =>
+  import('@lottiefiles/dotlottie-react').then((mod) => ({ default: mod.DotLottieReact }))
+);
 
 const Home = () => {
   const capabilities = [
@@ -108,7 +117,7 @@ const Home = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="home-btn home-btn-secondary"
-                onClick={() => window.open('/resume.pdf', '_blank')}
+                onClick={downloadResume}
               >
                 <Download className="home-btn-icon" />
                 <span>Download Resume</span>
@@ -123,11 +132,13 @@ const Home = () => {
             transition={{ duration: 0.7, delay: 0.5 }}
             className="home-lottie"
           >
-            <DotLottieReact
-              src="https://lottie.host/95513a23-956d-418b-ab0a-76cb0b75f02d/edsEiNGQsU.lottie"
-              loop
-              autoplay
-            />
+            <Suspense fallback={null}>
+              <DotLottieReact
+                src="https://lottie.host/95513a23-956d-418b-ab0a-76cb0b75f02d/edsEiNGQsU.lottie"
+                loop
+                autoplay
+              />
+            </Suspense>
           </motion.div>
 
         </div>

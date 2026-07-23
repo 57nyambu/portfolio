@@ -14,6 +14,14 @@ const Contact = () => {
 
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
+  // Optional: create a free access key at https://web3forms.com and paste it
+  // here to have submissions delivered by AJAX with an in-page "Sent" state.
+  // Until a key is set, the form falls back to opening the visitor's email
+  // client with the message pre-filled — so it always actually reaches you,
+  // it just isn't as seamless.
+  const WEB3FORMS_ACCESS_KEY = '';
+  const CONTACT_EMAIL = 'mwakionyambu57@gmail.com';
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
@@ -21,19 +29,56 @@ const Contact = () => {
     });
   };
 
+  const openMailFallback = () => {
+    const bodyLines = [
+      `Name: ${formData.name}`,
+      formData.company ? `Company: ${formData.company}` : null,
+      `Email: ${formData.email}`,
+      '',
+      formData.message,
+    ].filter(Boolean);
+    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+      `Portfolio inquiry: ${formData.subject || 'New message'}`
+    )}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    window.location.href = mailto;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('sending');
 
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
+    if (!WEB3FORMS_ACCESS_KEY) {
+      openMailFallback();
       setStatus('sent');
       setFormData({ name: '', email: '', company: '', subject: '', message: '' });
-      
-      setTimeout(() => {
-        setStatus('idle');
-      }, 3000);
-    }, 1000);
+      setTimeout(() => setStatus('idle'), 3000);
+      return;
+    }
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `Portfolio inquiry: ${formData.subject || 'New message'}`,
+          from_name: formData.name,
+        }),
+      });
+      const result = await res.json();
+
+      if (result.success) {
+        setStatus('sent');
+        setFormData({ name: '', email: '', company: '', subject: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    } finally {
+      setTimeout(() => setStatus('idle'), 3000);
+    }
   };
 
   const socialLinks = [
@@ -197,7 +242,10 @@ const Contact = () => {
                       whileTap={{ scale: status === 'sending' ? 1 : 0.98 }}
                       className="w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300"
                       style={{
-                        background: status === 'sending' ? 'var(--gray)' : status === 'sent' ? '#16a34a' : 'var(--orange)',
+                        background:
+                          status === 'sending' ? 'var(--gray)' :
+                          status === 'sent' ? '#16a34a' :
+                          status === 'error' ? '#dc2626' : 'var(--orange)',
                         color: '#fff',
                         cursor: status === 'sending' ? 'not-allowed' : 'pointer',
                         opacity: status === 'sending' ? 0.7 : 1,
@@ -208,6 +256,8 @@ const Contact = () => {
                         <span>Sending...</span>
                       ) : status === 'sent' ? (
                         <span>Message Sent!</span>
+                      ) : status === 'error' ? (
+                        <span>Couldn't send — try email directly</span>
                       ) : (
                         <>
                           <Send size={18} />
